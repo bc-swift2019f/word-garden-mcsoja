@@ -17,10 +17,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var playAgainButton: UIButton!
     @IBOutlet weak var flowerImageView: UIImageView!
     
+    var wordToGuess = "SWIFT"
+    var lettersGuessed = ""
+    var revealedWord = ""
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        guessLetterButton.isEnabled = false
+        playAgainButton.isHidden = true
     }
     
     func updateUIAfterGuess(){
@@ -29,7 +34,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func guessedLetterFieldChanged(_ sender: UITextField) {
-        
+        if let letterGuessed = guessedLetterField.text?.last {
+            guessedLetterField.text = String(letterGuessed)
+            guessLetterButton.isEnabled = true
+        } else {
+            //disable the button if not a single character in guessed letter field
+            guessLetterButton.isEnabled = false
+        }
     }
     
     @IBAction func doneKeyPressed(_ sender: UITextField) {
