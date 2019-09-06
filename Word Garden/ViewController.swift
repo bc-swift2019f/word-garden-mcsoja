@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     var wordStrings = ["SWIFT", "PLAY", "APP"]
     //
 
-    override func viewDidLoad() {
+    override func viewDidLoad() {  
         super.viewDidLoad()
         wordToGuess = wordStrings.randomElement()!
         formatUserGuessLabel()
